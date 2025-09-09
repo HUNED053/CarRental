@@ -1,0 +1,920 @@
+/* ========== Global Styles ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding-top: 80px; /* For navbar spacing */
+  animation: fadeInBody 1.2s ease-in;
+}
+
+@keyframes fadeInBody {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== Centered Form Container ========== */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 2rem;
+}
+
+.form-box {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 123, 255, 0.15);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  animation: slideUp 1s ease-in-out;
+}
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 60px; /* Leave space for the button inside */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0;
+}
+
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== Form Input Styles ========== */
+h2 {
+  color: #007bff;
+  margin-bottom: 1.5rem;
+  animation: fadeInText 1s ease-in;
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.input-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+/* ========== Error Messages ========== */
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+/* ========== Buttons ========== */
+.btn {
+  width: 100%;
+  padding: 12px;
+  background: #ff4d00;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+  animation: zoomIn 0.8s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.btn:hover {
+  background: #ff0000;
+  transform: translateY(-2px) scale(1.02);
+}
+
+.btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* ========== Links ========== */
+.link {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.link a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.link a:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
+
+/* ========== Navbar Styles ========== */
+.navbar {
+  background: #007bff;
+  padding: 15px 20px;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  animation: slideDown 0.8s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #f4f4f4;
+}
+
+/* Logout Button */
+.logout-btn {
+  background: #ff0000;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: darkred;
+}
+
+/* ========== Responsive Navbar ========== */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #007bff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 15px 0;
+  }
+
+  .nav-links.open {
+    display: flex;
+    animation: fadeInNav 0.5s ease;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+@keyframes fadeInNav {
+  from {
+    opacity: 0;
+    transform: scaleY(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+/* ========== Home & Cars Container ========== */
+.home-container,
+.cars-container {
+  text-align: center;
+  padding: 80px 20px 50px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ========== Car Grid (Shared) ========== */
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ========== Car Card ========== */
+.car-card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.car-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ========== Availability Status ========== */
+.available-text {
+  color: green;
+  font-weight: bold;
+}
+
+.not-available-text {
+  color: red;
+  font-weight: bold;
+}
+
+.car-card.available {
+  box-shadow: 0 0 10px rgba(0, 128, 0, 0.2);
+}
+
+.car-card.not-available {
+  opacity: 0.7;
+}
+
+.car-card.not-available .rent-btn {
+  display: none;
+}
+
+/* ========== Car Actions Buttons ========== */
+.car-actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.car-actions .btn {
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.car-actions .btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Button Colors */
+.view-btn {
+  background: #007bff;
+}
+.view-btn:hover {
+  background: #0056b3;
+}
+
+.rent-btn {
+  background: #28a745;
+}
+.rent-btn:hover {
+  background: #218838;
+}
+
+.edit-btn {
+  background: #ffc107;
+}
+.edit-btn:hover {
+  background: #e0a800;
+}
+
+.delete-btn {
+  background: #dc3545;
+}
+.delete-btn:hover {
+  background: #c82333;
+}
+
+/* ========== Add Car Button ========== */
+.add-car-btn {
+  display: inline-block;
+  margin: 10px 0;
+  background: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.add-car-btn:hover {
+  background: #218838;
+}
+
+/* ========== Responsive Layout ========== */
+@media (max-width: 1024px) {
+  .car-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .car-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .car-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}.car-details-container {
+  text-align: center;
+  padding: 120px 20px 50px; /* Adjusted for navbar height */
+}
+
+.car-image-large {
+  width: 60%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Car Actions */
+.car-actions {
+  margin-top: 15px;
+}
+
+.car-actions .btn {
+  margin: 5px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+/* Button Colors */
+.rent-btn {
+  background: #007bff;
+}
+
+.edit-btn {
+  background: #ffc107;
+}
+
+.delete-btn {
+  background: #dc3545;
+}
+
+.rent-btn:hover {
+  background: #0056b3;
+}
+
+.edit-btn:hover {
+  background: #e0a800;
+}
+
+.delete-btn:hover {
+  background: #c82333;
+}
+.input-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  background: rgb(18, 17, 17);
+}
+
+.input-group select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+.rental-history-container {
+  text-align: center;
+  padding: 100px 20px 50px;
+}
+
+/* Filter Section */
+.filter-container {
+  margin-bottom: 20px;
+}
+
+.filter-container label {
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
+.filter-container select {
+  padding: 5px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Rental List & Cards */
+.rental-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.rental-card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 350px;
+}
+
+/* No Rentals Message */
+.no-rentals {
+  font-size: 1.2rem;
+  color: #888;
+}
+
+/* Return Button */
+.return-btn {
+  background: #28a745;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.return-btn:hover {
+  background: #218838;
+}
+
+
+/* ========== Payments Page Enhancements ========== */
+.payments-container {
+  text-align: center;
+  padding: 100px 20px 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.payment-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.payment-card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: zoomIn 0.5s ease;
+}
+
+.payment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.pay-btn {
+  background: #ff6600;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  margin-top: 10px;
+}
+
+.pay-btn:hover {
+  background: #e65c00;
+  transform: scale(1.05);
+}
+
+
+/* ========== Accounts Section Enhancements ========== */
+.accounts-container {
+  padding: 100px 20px 50px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.accounts-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.accounts-table th,
+.accounts-table td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #eee;
+  font-size: 1rem;
+}
+
+.accounts-table th {
+  background-color: #ff6600;
+  color: white;
+}
+
+.accounts-table td {
+  background-color: #f9f9f9;
+}
+
+.role-cell {
+  cursor: pointer;
+  color: #007bff;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.role-cell:hover {
+  color: #0056b3;
+}
+
+
+/* ========== Modal Enhancements ========== */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  animation: fadeIn 0.4s ease;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(255, 102, 0, 0.4);
+  animation: zoomIn 0.4s ease;
+}
+
+.modal-close {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.modal-close:hover {
+  transform: scale(1.2);
+}
+
+
+/* ========== Animations ========== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ========== Payments Page Enhancements ========== */
+.payment-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
+  justify-items: center;
+  align-items: start;
+  animation: fadeIn 0.8s ease-in;
+}
+
+/* Payment Card Styling */
+.payment-card {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  max-width: 360px;
+  margin: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: slideUp 0.6s ease forwards;
+}
+
+.payment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(255, 102, 0, 0.2);
+}
+
+/* Session ID and Status */
+.session-id {
+  word-break: break-word;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.pending-status {
+  color: orange;
+  font-weight: bold;
+}
+
+.completed-status {
+  color: green;
+  font-weight: bold;
+}
+
+/* Pay Button */
+.pay-btn {
+  background: #ff6600;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.4rem;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 0.75rem;
+  border: none;
+  transition: background 0.3s;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.pay-btn:hover {
+  background: #cc5200;
+}
+
+/* Admin Payment Section */
+.admin-payment-container {
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff8f2;
+  border-radius: 1rem;
+  max-width: 1200px;
+  box-shadow: 0 4px 16px rgba(255, 102, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Heading */
+.admin-payment-container h1 {
+  text-align: center;
+  color: #ff6600;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* No data available message */
+.no-data {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #aaa;
+  margin-top: 2rem;
+}
+
+/* Table Styling */
+.admin-payment-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  animation: fadeIn 0.7s ease;
+}
+
+.admin-payment-table thead {
+  background-color: #ff6600;
+  color: #e90606;
+}
+
+.admin-payment-table th,
+.admin-payment-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.admin-payment-table tr:nth-child(even) {
+  background-color: #fff5eb;
+}
+
+.admin-payment-table tr:nth-child(odd) {
+  background-color: #fffaf5;
+}
+
+.admin-payment-table td.status-pending {
+  color: orange;
+  font-weight: bold;
+}
+
+.admin-payment-table td.status-completed {
+  color: green;
+  font-weight: bold;
+}
+
+/* ========== Animations ========== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Make every car‐thumb fit its card, but not overflow */
+.car-card img,
+.rental-card img {
+  display: block;
+  width: 100%;        /* fill the width of its parent (.car-card or .rental-card) */
+  max-width: 100%;    /* never grow beyond its container */
+  height: auto;       /* keep its aspect ratio */
+  object-fit: cover;  /* crop any excess if you give it a fixed height */
+}
+.status-paid {
+  color: green;
+  font-weight: bold;
+}
+
+.status-pending {
+  color: red;
+  font-weight: bold;
+}
+
+.clickable {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.clickable:hover {
+  text-decoration: underline;
+}
